@@ -8,6 +8,8 @@ function bestelgrindenzand_child_theme_setup() {
 }
 add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
+require 'shortcode-calculator.php';
+
 // Add backend styles for Gutenberg.
 function bestelgrindenzand_add_gutenberg_assets() {
 	wp_enqueue_style( 'bestelgrindenzand-gutenberg', get_theme_file_uri( '/gutenberg-editor-style.css' ), false );
@@ -93,3 +95,27 @@ function bestelgrindenzand_variation_price_format( $price, $product ) {
 }
 add_filter( 'woocommerce_variable_sale_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
 add_filter( 'woocommerce_variable_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
+
+function rekenhulp_tab( $tabs ) {
+	if ( get_post_meta( get_the_ID(), 'rekenhulp', true ) != '' ) {
+		$tabs['rekenhulp'] = array(
+			'title'     => __( 'Rekenhulp', 'bestelgrindenzand' ),
+			'priority'  => 50,
+			'callback'  => 'rekenhulp_tab_callback'
+		);
+	}
+	return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'rekenhulp_tab' );
+
+function rekenhulp_tab_callback() {
+	echo '<h2>Rekenhulp</h2>';
+	echo '<p>Met behulp van onderstaande rekenhulp kunt u eenvoudig berekenen hoeveel ';
+	echo strtolower(get_the_title(get_the_ID()));
+	echo ' u nodig heeft voor uw toepassing.</p>';
+
+	$shortcodes = get_post_meta( get_the_ID(), 'rekenhulp', false );
+	foreach ( $shortcodes as $shortcode ) {
+		echo do_shortcode( '[' . $shortcode . ']' );
+	}
+}

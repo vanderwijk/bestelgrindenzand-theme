@@ -154,3 +154,40 @@ a.remove::before {
 p + h2 {
 	margin-top: 0.290684em;
 }
+
+/* Rekenhulp
+----------------------------------------------------------------------------------------------------*/
+.calculator {
+	background-color: #837b7c;
+	background-color: rgba(131, 123, 124, 0.1);
+	border: 1px dashed #837b7c;
+	font-size: 18px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.calculator label,
+.calculator input {
+	display: block;
+}
+.calculator label,
+.radiobuttons p {
+	margin-bottom: 8px;
+}
+.calculator input {
+	margin-bottom: 16px;
+	width: 25%;
+	padding: 5px;
+	font-size: 18px;
+}
+.calculator input[type='number'] {
+	background-color: #ffffff;
+}
+.radiobuttons label,
+.radiobuttons input {
+	display: inline-block;
+	width: auto;
+}
+.calculator span.result {
+	color: #f4244a;
+	font-weight: 600;
+}
