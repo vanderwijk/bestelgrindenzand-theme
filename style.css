@@ -139,7 +139,7 @@ a.remove::before {
 
 }
 .widget .widget-title {
-
+	font-weight: 400;
 }
 .textwidget {
 
