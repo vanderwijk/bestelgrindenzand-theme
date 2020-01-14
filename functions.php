@@ -97,7 +97,8 @@ add_filter( 'woocommerce_variable_sale_price_html', 'bestelgrindenzand_variation
 add_filter( 'woocommerce_variable_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
 
 function rekenhulp_tab( $tabs ) {
-	if ( get_post_meta( get_the_ID(), 'rekenhulp', true ) != '' ) {
+	$terms = wp_get_post_terms( get_the_ID(), 'product_tag' );
+	if ( $terms ) {
 		$tabs['rekenhulp'] = array(
 			'title'     => __( 'Rekenhulp', 'bestelgrindenzand' ),
 			'priority'  => 50,
@@ -114,8 +115,9 @@ function rekenhulp_tab_callback() {
 	echo strtolower(get_the_title(get_the_ID()));
 	echo ' u nodig heeft voor uw toepassing.</p>';
 
-	$shortcodes = get_post_meta( get_the_ID(), 'rekenhulp', false );
+	//$shortcodes = get_post_meta( get_the_ID(), 'rekenhulp', false );
+	$shortcodes = wp_get_post_terms( get_the_ID(), 'product_tag' );
 	foreach ( $shortcodes as $shortcode ) {
-		echo do_shortcode( '[' . $shortcode . ']' );
+		echo do_shortcode( '[' . $shortcode->slug . ']' );
 	}
 }
