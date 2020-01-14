@@ -1,0 +1,150 @@
+/*
+Theme Name:   	Bestel Grind en Zand
+Theme URI:    	https://bestelgrindenzand.nl
+Author:       	Johan van der Wijk
+Author URI:     https://thewebworks.nl
+Template:     	storefront
+Description:  	This is a child theme for the WooThemes StoreFront theme
+Version:      	1.0.0
+Text Domain:  	bestelgrindenzand
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
+/* Header */
+.site-header {
+
+}
+
+.site-header h2 {
+
+}
+
+.home .wp-block-cover {
+	min-height: auto;
+}
+
+@media (min-width: 768px) {
+	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
+		padding-top: 2.5em;
+		padding-bottom: 2.5em;
+	}
+	.site-branding {
+		margin-bottom: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.storefront-breadcrumb {
+		margin: 0 0 1.706326em;
+	}
+	.storefront-full-width-content.woocommerce-cart .entry-header, .storefront-full-width-content.woocommerce-checkout .entry-header, .storefront-full-width-content.woocommerce-account .entry-header, .storefront-full-width-content .woocommerce-products-header {
+		padding: 0 0 1.996835em;
+	}
+}
+
+/* Product */
+.soldout {
+	background: red;
+	border-radius: 50%;
+
+	width: 13px;
+	height: 13px;
+	
+	position: absolute;
+	top: 10px;
+	left: 10px;
+
+	z-index: 5;
+}
+
+.stock.in-stock::before,
+.stock.out-of-stock::before {
+	content: '\2B24';
+}
+
+.stock.out-of-stock {
+	color: red;
+}
+
+.stock.in-stock {
+	color: #11d379;
+}
+
+/* Cart */
+button.alt,
+.button.alt {
+	background-color: #159f5f!important;
+	border-color: #159f5f!important;
+}
+
+.required,
+a.remove::before {
+	color: #159f5f!important;
+}
+
+/* Checkout */
+#billing_country_field {
+	display: none;
+}
+
+/* Checkmarks list */
+.checkmarks {
+	margin-left: 0;
+}
+
+.checkmarks li {
+	list-style: none;
+}
+
+.checkmarks li:before {
+	color: #11d379;
+	content: '\2713';
+	margin-right: 5px;
+}
+
+/* Blog */
+.posted-on,
+.post-author,
+.post-comments {
+	display: none;
+}
+
+/* Gravity forms validation */
+.gform_wrapper .gfield_required {
+	color: #159f5f!important;
+}
+
+.gform_wrapper div.validation_error,
+.gform_wrapper .validation_message {
+	color: #159f5f!important;
+	border-color: #159f5f!important;
+}
+
+.gform_wrapper li.gfield.gfield_error,
+.gform_wrapper .field_description_below .gfield_description {
+	border: none!important;
+	background-color: transparent!important;
+	padding: 0!important;
+}
+
+.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
+	border-color: #159f5f!important;
+}
+
+/* Footer */
+.socialfoot a {
+
+}
+.widget .widget-title {
+
+}
+.textwidget {
+
+}
+
+p + h2 {
+	margin-top: 0.290684em;
+}
