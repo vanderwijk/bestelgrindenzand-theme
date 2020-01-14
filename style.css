@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6 {
 	min-height: auto;
 }
 
+.home .wp-block-cover h1,
+.home .wp-block-cover h2,
+.home .wp-block-cover h3 {
+	text-shadow: 0px 0px 10px black;
+}
+
 @media (min-width: 768px) {
 	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
 		padding-top: 2.5em;
