@@ -76,13 +76,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Cart */
 button.alt,
 .button.alt {
-	background-color: #159f5f!important;
-	border-color: #159f5f!important;
+	background-color: #f4244a!important;
+	border-color: #f4244a!important;
 }
 
 .required,
 a.remove::before {
-	color: #159f5f!important;
+	color: #f4244a!important;
 }
 
 /* Checkout */
@@ -114,13 +114,13 @@ a.remove::before {
 
 /* Gravity forms validation */
 .gform_wrapper .gfield_required {
-	color: #159f5f!important;
+	color: #f4244a!important;
 }
 
 .gform_wrapper div.validation_error,
 .gform_wrapper .validation_message {
-	color: #159f5f!important;
-	border-color: #159f5f!important;
+	color: #f4244a!important;
+	border-color: #f4244a!important;
 }
 
 .gform_wrapper li.gfield.gfield_error,
@@ -131,7 +131,7 @@ a.remove::before {
 }
 
 .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
-	border-color: #159f5f!important;
+	border-color: #f4244a!important;
 }
 
 /* Footer */
