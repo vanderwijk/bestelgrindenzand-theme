@@ -142,6 +142,9 @@ a.remove::before {
 }
 
 /* Footer */
+.site-footer {
+	padding: 0;
+}
 .socialfoot a {
 
 }
