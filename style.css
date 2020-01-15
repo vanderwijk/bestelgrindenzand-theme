@@ -142,8 +142,10 @@ a.remove::before {
 }
 
 /* Footer */
-.site-footer {
-	padding: 0;
+@media (min-width: 768px) {
+	.site-footer {
+		padding: 0;
+	}
 }
 .socialfoot a {
 
