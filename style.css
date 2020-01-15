@@ -156,6 +156,12 @@ p + h2 {
 	margin-top: 0.290684em;
 }
 
+/* Home */
+.home .content-area,
+.home .site-main {
+	margin-bottom: 0;
+}
+
 /* Rekenhulp
 ----------------------------------------------------------------------------------------------------*/
 .calculator {
