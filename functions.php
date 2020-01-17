@@ -35,7 +35,7 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 			<br />
 			<?php
 				if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
-					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span><a href="https://vanderwijk.nl">VanderWijk Consultancy</a>' );
+					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span><a href="https://thewebworks.nl/">The Web Works</a>' );
 				}
 			?>
 			<?php } ?>
