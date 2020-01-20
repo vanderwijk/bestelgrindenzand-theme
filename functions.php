@@ -10,6 +10,18 @@ add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 require 'shortcode-calculator.php';
 
+function bestelgrindenzand_google_analytics() { ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156535755-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-156535755-1');
+</script>
+<?php }
+add_action( 'wp_head', 'bestelgrindenzand_google_analytics', 10 );
+
 // Add backend styles for Gutenberg.
 function bestelgrindenzand_add_gutenberg_assets() {
 	wp_enqueue_style( 'bestelgrindenzand-gutenberg', get_theme_file_uri( '/gutenberg-editor-style.css' ), false );
