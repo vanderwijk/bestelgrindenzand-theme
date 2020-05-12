@@ -133,3 +133,12 @@ function rekenhulp_tab_callback() {
 		echo do_shortcode( '[' . $shortcode->slug . ']' );
 	}
 }
+
+// Fix search console errors
+function filter_woocommerce_structured_data_product( $markup, $product ) {
+    $markup['brand'] = get_bloginfo( 'name' );
+    $markup['itemCondition'] = 'new';
+    $markup['mpn'] = $markup['sku'];
+    return $markup;
+};
+add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
