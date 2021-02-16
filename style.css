@@ -29,10 +29,12 @@ h1, h2, h3, h4, h5, h6 {
 .home .wp-block-cover h1,
 .home .wp-block-cover h2,
 .home .wp-block-cover h3 {
-	text-shadow: 0px 0px 10px black;
-	text-shadow: 1px 1px 1px white;
-	text-shadow: 0px 0px 10px white;
 	color: #f4244a;
+}
+
+.home .wp-block-cover h1 strong,
+.home .wp-block-cover h2 strong,
+.home .wp-block-cover h3 strong {
 	font-weight: 700;
 }
 
