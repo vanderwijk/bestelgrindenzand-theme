@@ -36,8 +36,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) {
 	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
-		padding-top: 2em;
-		padding-bottom: 2em;
+		padding-top: 1em;
+		padding-bottom: 1em;
 	}
 	.site-branding {
 		margin-bottom: 0;
