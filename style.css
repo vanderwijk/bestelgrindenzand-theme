@@ -23,6 +23,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .home .wp-block-cover {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 	min-height: auto;
 }
 
@@ -34,8 +36,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) {
 	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
-		padding-top: 2.5em;
-		padding-bottom: 2.5em;
+		padding-top: 2em;
+		padding-bottom: 2em;
 	}
 	.site-branding {
 		margin-bottom: 0;
