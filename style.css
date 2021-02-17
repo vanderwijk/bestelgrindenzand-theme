@@ -53,8 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.wp-block-button__link {
-		border: 3px solid #f28297;
+.hentry .entry-content .wp-block-button .wp-block-button__link {
+		border: 3px solid #f2abb8;
 		border-radius: 2em;
 	}
 
