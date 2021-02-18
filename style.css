@@ -9,30 +9,30 @@ Version:      	1.0.0
 Text Domain:  	bestelgrindenzand
 */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: 700;
 }
 
 /* Header */
-.site-header {
-
-}
-
-.site-header h2 {
-
-}
-
 .main-navigation ul li a {
 	font-weight: 600;
 }
 
-.main-navigation ul li a:hover, .main-navigation ul li:hover > a, .site-title a:hover, .site-header ul.menu li.current-menu-item > a {
+.main-navigation ul li a:hover,
+.main-navigation ul li:hover>a,
+.site-title a:hover,
+.site-header ul.menu li.current-menu-item>a {
 	color: #313131;
 }
 
 .home .wp-block-cover {
-	border-top: 1px solid rgba(0,0,0,.05);
-	border-bottom: 1px solid rgba(0,0,0,.05);
+	border-top: 1px solid rgba(0, 0, 0, .05);
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
 	min-height: auto;
 }
 
@@ -43,10 +43,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 768px) {
-	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
+
+	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container,
+	.editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
 		padding-top: 1em;
 		padding-bottom: 1em;
 	}
+
 	.site-branding {
 		margin-bottom: 0;
 	}
@@ -56,15 +59,24 @@ h1, h2, h3, h4, h5, h6 {
 	.storefront-breadcrumb {
 		margin: 0 0 1.706326em;
 	}
-	.storefront-full-width-content.woocommerce-cart .entry-header, .storefront-full-width-content.woocommerce-checkout .entry-header, .storefront-full-width-content.woocommerce-account .entry-header, .storefront-full-width-content .woocommerce-products-header {
+
+	.storefront-full-width-content.woocommerce-cart .entry-header,
+	.storefront-full-width-content.woocommerce-checkout .entry-header,
+	.storefront-full-width-content.woocommerce-account .entry-header,
+	.storefront-full-width-content .woocommerce-products-header {
 		padding: 0 0 1.996835em;
 	}
 }
 
 .hentry .entry-content .wp-block-button .wp-block-button__link {
-		border: 3px solid #fcc8d2;
-		border-radius: 2em;
-	}
+	border: 3px solid #fcc8d2;
+	border-radius: 2em;
+}
+
+/* Home */
+.home li.product-category img {
+	border-radius: 2em;
+}
 
 /* Product */
 .soldout {
@@ -73,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	width: 13px;
 	height: 13px;
-	
+
 	position: absolute;
 	top: 10px;
 	left: 10px;
@@ -97,13 +109,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Cart */
 button.alt,
 .button.alt {
-	background-color: #f4244a!important;
-	border-color: #f4244a!important;
+	background-color: #f4244a !important;
+	border-color: #f4244a !important;
 }
 
 .required,
 a.remove::before {
-	color: #f4244a!important;
+	color: #f4244a !important;
 }
 
 /* Checkout */
@@ -135,29 +147,30 @@ a.remove::before {
 
 /* Gravity forms validation */
 .gform_wrapper .gfield_required {
-	color: #f4244a!important;
+	color: #f4244a !important;
 }
 
 .gform_wrapper div.validation_error,
 .gform_wrapper .validation_message {
-	color: #f4244a!important;
-	border-color: #f4244a!important;
+	color: #f4244a !important;
+	border-color: #f4244a !important;
 }
 
 .gform_wrapper li.gfield.gfield_error,
 .gform_wrapper .field_description_below .gfield_description {
-	border: none!important;
-	background-color: transparent!important;
-	padding: 0!important;
+	border: none !important;
+	background-color: transparent !important;
+	padding: 0 !important;
 }
 
-.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
-	border-color: #f4244a!important;
+.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+.gform_wrapper li.gfield_error textarea {
+	border-color: #f4244a !important;
 }
 
 /* Footer */
 .site-footer {
-	border-top: 1px solid rgba(0,0,0,.05);
+	border-top: 1px solid rgba(0, 0, 0, .05);
 }
 
 .site-info {
@@ -169,17 +182,12 @@ a.remove::before {
 		padding: 0;
 	}
 }
-.socialfoot a {
 
-}
 .widget .widget-title {
 	font-weight: 400;
 }
-.textwidget {
 
-}
-
-p + h2 {
+p+h2 {
 	margin-top: 0.290684em;
 }
 
@@ -199,28 +207,34 @@ p + h2 {
 	padding: 20px;
 	margin-bottom: 20px;
 }
+
 .calculator label,
 .calculator input {
 	display: block;
 }
+
 .calculator label,
 .radiobuttons p {
 	margin-bottom: 8px;
 }
+
 .calculator input {
 	margin-bottom: 16px;
 	width: 25%;
 	padding: 5px;
 	font-size: 18px;
 }
+
 .calculator input[type='number'] {
 	background-color: #ffffff;
 }
+
 .radiobuttons label,
 .radiobuttons input {
 	display: inline-block;
 	width: auto;
 }
+
 .calculator span.result {
 	color: #f4244a;
 	font-weight: 600;
