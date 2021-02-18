@@ -152,6 +152,10 @@ a.remove::before {
 	border-top: 1px solid rgba(0,0,0,.05);
 }
 
+.site-info {
+	font-size: .875em;
+}
+
 @media (min-width: 768px) {
 	.site-footer {
 		padding: 0;
