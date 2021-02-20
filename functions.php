@@ -12,15 +12,6 @@ require 'shortcode-calculator.php';
 
 function bestelgrindenzand_tracking() { ?>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156535755-1"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'UA-156535755-1');
-</script>
-
 <!-- Global site tag (gtag.js) - Google Ads: 666638924 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-666638924"></script>
 <script>
@@ -45,20 +36,18 @@ function bestelgrindenzand_tracking() { ?>
 <?php }
 add_action( 'wp_head', 'bestelgrindenzand_tracking', 10 );
 
-
 // Conversion tracking
 function track_conversion( $order_id ) {
 
-	if ( ! $order_id )
+	if ( ! $order_id ) {
 		return;
+	}
 
 	// Getting an instance of the order object
 	$order = wc_get_order( $order_id );
 
 	if ( $order->is_paid() ) {
-		echo "
-
-		<!-- Event snippet for Aankoop Bookstore conversion page -->
+		echo "<!-- Event snippet for Aankoop bestelgrindenzand.nl conversion page -->
 		<script>
 		  gtag('event', 'conversion', {
 			  'send_to': 'AW-666638924/dbfGCMrB_PYBEMy08L0C',
