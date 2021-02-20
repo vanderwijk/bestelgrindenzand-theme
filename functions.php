@@ -31,8 +31,46 @@ function bestelgrindenzand_tracking() { ?>
   gtag('config', 'AW-666638924');
 </script>
 
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-666638924',
+    'value': '',
+    'items': [{
+      'id': '',
+      'google_business_vertical': 'retail'
+    }]
+  });
+</script>
+
 <?php }
 add_action( 'wp_head', 'bestelgrindenzand_tracking', 10 );
+
+
+// Conversion tracking
+function track_conversion( $order_id ) {
+
+	if ( ! $order_id )
+		return;
+
+	// Getting an instance of the order object
+	$order = wc_get_order( $order_id );
+
+	if ( $order->is_paid() ) {
+		echo "
+
+		<!-- Event snippet for Aankoop Bookstore conversion page -->
+		<script>
+		  gtag('event', 'conversion', {
+			  'send_to': 'AW-666638924/dbfGCMrB_PYBEMy08L0C',
+			  'value': " . $order->get_total() . ",
+			  'currency': 'EUR',
+			  'transaction_id': '" . $order_id . "'
+		  });
+		</script>";
+
+	}
+}
+add_action('woocommerce_thankyou', 'track_conversion', 10, 1);
 
 // Add backend styles for Gutenberg.
 function bestelgrindenzand_add_gutenberg_assets() {
