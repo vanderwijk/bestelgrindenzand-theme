@@ -43,7 +43,7 @@ function bestelgrindenzand_dynamic_remarketing() {
 			echo "<script>
 			gtag('event', 'page_view', {
 			  'send_to': 'AW-666638924',
-			  'value': '" . $variation_price . "',
+			  'value': " . $variation_price . ",
 			  'items': [{
 				'id': '" . $variation_id . "',
 				'google_business_vertical': 'retail'
