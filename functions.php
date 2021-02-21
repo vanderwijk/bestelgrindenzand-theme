@@ -22,19 +22,40 @@ function bestelgrindenzand_tracking() { ?>
   gtag('config', 'AW-666638924');
 </script>
 
-<script>
-  gtag('event', 'page_view', {
-    'send_to': 'AW-666638924',
-    'value': '',
-    'items': [{
-      'id': '',
-      'google_business_vertical': 'retail'
-    }]
-  });
-</script>
-
 <?php }
 add_action( 'wp_head', 'bestelgrindenzand_tracking', 10 );
+
+// Get most expensive variable and tag this for remarketing in Google Ads
+function bestelgrindenzand_dynamic_remarketing() {
+	if ( is_product() ) {
+		global $product;
+
+		$id = $product->get_id();
+
+		if ( $product->is_type( 'variable' ) ) {
+
+			$prices = $product->get_variation_prices();
+
+			// get the most expensive variation
+			$variation_id = array_key_last( $prices['price'] );
+			$variation_price = end( $prices['price'] );
+
+			echo "<script>
+			gtag('event', 'page_view', {
+			  'send_to': 'AW-666638924',
+			  'value': '" . $variation_price . "',
+			  'items': [{
+				'id': '" . $variation_id . "',
+				'google_business_vertical': 'retail'
+			  }]
+			});
+		  </script>";
+
+		}
+	}
+}
+add_action( 'wp_footer', 'bestelgrindenzand_dynamic_remarketing', 10 );
+
 
 // Conversion tracking
 function track_conversion( $order_id ) {
@@ -175,9 +196,9 @@ function rekenhulp_tab_callback() {
 
 // Fix search console errors
 function filter_woocommerce_structured_data_product( $markup, $product ) {
-    $markup['brand'] = get_bloginfo( 'name' );
-    $markup['itemCondition'] = 'new';
-    $markup['mpn'] = $markup['sku'];
-    return $markup;
+	$markup['brand'] = get_bloginfo( 'name' );
+	$markup['itemCondition'] = 'new';
+	$markup['mpn'] = $markup['sku'];
+	return $markup;
 };
 add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
