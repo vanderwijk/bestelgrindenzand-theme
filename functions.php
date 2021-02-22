@@ -1,29 +1,30 @@
 <?php
 
-/**
- * Loads the child theme textdomain.
- */
+// Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
 	load_child_theme_textdomain( 'bestelgrindenzand', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
+
 require 'shortcode-calculator.php';
+
 
 function bestelgrindenzand_tracking() { ?>
 
 <!-- Global site tag (gtag.js) - Google Ads: 666638924 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-666638924"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-  gtag('config', 'AW-666638924');
+	gtag('config', 'AW-666638924');
 </script>
 
 <?php }
 add_action( 'wp_head', 'bestelgrindenzand_tracking', 10 );
+
 
 // Get most expensive variable and tag this for remarketing in Google Ads
 function bestelgrindenzand_dynamic_remarketing() {
@@ -42,14 +43,14 @@ function bestelgrindenzand_dynamic_remarketing() {
 
 			echo "<script>
 			gtag('event', 'page_view', {
-			  'send_to': 'AW-666638924',
-			  'value': " . $variation_price . ",
-			  'items': [{
-				'id': '" . $variation_id . "',
-				'google_business_vertical': 'retail'
-			  }]
+				'send_to': 'AW-666638924',
+				'value': " . $variation_price . ",
+				'items': [{
+					'id': '" . $variation_id . "',
+					'google_business_vertical': 'retail'
+				}]
 			});
-		  </script>";
+			</script>";
 
 		}
 	}
@@ -82,21 +83,25 @@ function track_conversion( $order_id ) {
 }
 add_action('woocommerce_thankyou', 'track_conversion', 10, 1);
 
+
 // Add backend styles for Gutenberg.
 function bestelgrindenzand_add_gutenberg_assets() {
 	wp_enqueue_style( 'bestelgrindenzand-gutenberg', get_theme_file_uri( '/gutenberg-editor-style.css' ), false );
 }
 add_action( 'enqueue_block_editor_assets', 'bestelgrindenzand_add_gutenberg_assets' );
 
+
 function bestelgrindenzand_storefront_header_content() {
 	echo '<h2>Bestel Grind en Zand</h2>';
 }
 //add_action( 'storefront_header', 'bestelgrindenzand_storefront_header_content', 40 );
 
+
 function bestelgrindenzand_remove_actions() {
 	remove_action( 'storefront_header', 'storefront_product_search', 40 );
 }
 //add_action( 'init', 'bestelgrindenzand_remove_actions' );
+
 
 if ( ! function_exists( 'storefront_credit' ) ) {
 	function storefront_credit() {
@@ -115,6 +120,7 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 		<?php
 	}
 }
+
 
 function bestelgrindenzand_checkout_bezorgdatum( $checkout ) {
 	echo '<div id="bezorgdatum"><h2>' . __('Gewenste bezorgdatum') . '</h2>';
@@ -139,6 +145,7 @@ function bestelgrindenzand_checkout_bezorgdatum( $checkout ) {
 }
 //add_action( 'woocommerce_before_order_notes', 'bestelgrindenzand_checkout_bezorgdatum' );
 
+
 function bestelgrindenzand_order_meta_keys( $keys ) {
 	$keys[] = 'bezorgdatum';
 	$keys[] = 'bezorgtijd';
@@ -146,11 +153,13 @@ function bestelgrindenzand_order_meta_keys( $keys ) {
 }
 //add_filter('woocommerce_email_order_meta_keys', 'bestelgrindenzand_order_meta_keys');
 
+
 function bestelgrindenzand_remove_menu_items(){
 	remove_menu_page( 'edit.php' );
 	remove_menu_page( 'edit-comments.php' );
 }
 add_action( 'admin_menu', 'bestelgrindenzand_remove_menu_items', 999 );
+
 
 function bestelgrindenzand_variation_price_format( $price, $product ) {
 	// Main prices
@@ -168,6 +177,7 @@ function bestelgrindenzand_variation_price_format( $price, $product ) {
 add_filter( 'woocommerce_variable_sale_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
 add_filter( 'woocommerce_variable_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
 
+
 function rekenhulp_tab( $tabs ) {
 	$terms = wp_get_post_terms( get_the_ID(), 'product_tag' );
 	if ( $terms ) {
@@ -181,10 +191,13 @@ function rekenhulp_tab( $tabs ) {
 }
 add_filter( 'woocommerce_product_tabs', 'rekenhulp_tab' );
 
+
 function rekenhulp_tab_callback() {
+	global $product;
+
 	echo '<h2>Rekenhulp</h2>';
 	echo '<p>Met behulp van onderstaande rekenhulp kunt u eenvoudig berekenen hoeveel ';
-	echo strtolower(get_the_title(get_the_ID()));
+	echo strtolower($product->get_name());
 	echo ' u nodig heeft voor uw toepassing.</p>';
 
 	//$shortcodes = get_post_meta( get_the_ID(), 'rekenhulp', false );
@@ -193,6 +206,21 @@ function rekenhulp_tab_callback() {
 		echo do_shortcode( '[' . $shortcode->slug . ']' );
 	}
 }
+
+
+function seo_description_product_tab() {
+	global $product;
+	return __('Productinformatie', 'bestelgrindenzand') . ' ' . $product->get_name();
+}
+add_filter( 'woocommerce_product_description_heading', 'seo_description_product_tab' );
+
+
+function seo_add_to_cart_button() {
+	global $product;
+	return __('Bestel', 'bestelgrindenzand') . ' ' . $product->get_name();
+}
+add_filter( 'woocommerce_product_add_to_cart_text','seo_add_to_cart_button' );
+
 
 // Fix search console errors
 function filter_woocommerce_structured_data_product( $markup, $product ) {
