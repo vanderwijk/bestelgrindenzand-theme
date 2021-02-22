@@ -199,6 +199,7 @@ a.remove::before {
 /* Footer */
 .site-footer {
 	border-top: 1px solid rgba(0, 0, 0, .05);
+	color: #333;
 }
 
 .site-info {
