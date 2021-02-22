@@ -230,3 +230,15 @@ function filter_woocommerce_structured_data_product( $markup, $product ) {
 	return $markup;
 };
 add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
+
+
+// Search box placeholder
+function bestelgrindenzand_text_strings( $translated_text, $text, $domain ) {
+	switch ( $translated_text ) {
+		case 'Zoek producten&hellip;' :
+			$translated_text = __( 'Waar bent u naar op zoek?', 'woocommerce' );
+			break;
+	}
+	return $translated_text;
+}
+add_filter( 'gettext', 'bestelgrindenzand_text_strings', 20, 3 );

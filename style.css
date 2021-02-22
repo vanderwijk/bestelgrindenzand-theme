@@ -189,7 +189,16 @@ a.remove::before {
 }
 
 .widget .widget-title {
-	font-weight: 400;
+	border: none;
+	font-weight: 600;
+	margin-bottom: .5em;
+	padding-bottom: 0;
+}
+
+.site-footer .widget table td,
+.site-footer .widget table th {
+	padding: .5em 1em;
+	border-bottom: 1px solid rgba(0,0,0,.05);
 }
 
 p+h2 {
