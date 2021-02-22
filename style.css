@@ -70,7 +70,14 @@ h6 {
 	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover {
 		margin-bottom: 2em;
 	}
-	.editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container, .hentry .entry-content .wp-block-cover .wp-block-cover__inner-container {
+	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h1 {
+		line-height: 1.1;
+	}
+	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h3 {
+		line-height: 1.3;
+	}
+	.editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container, 
+	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container {
 		padding: 0;
 	}
 }
