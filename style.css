@@ -53,9 +53,7 @@ h6 {
 	.site-branding {
 		margin-bottom: 0;
 	}
-}
 
-@media (min-width: 768px) {
 	.storefront-breadcrumb {
 		margin: 0 0 1.706326em;
 	}
@@ -65,6 +63,15 @@ h6 {
 	.storefront-full-width-content.woocommerce-account .entry-header,
 	.storefront-full-width-content .woocommerce-products-header {
 		padding: 0 0 1.996835em;
+	}
+}
+
+@media (max-width: 768px) {
+	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover {
+		margin-bottom: 2em;
+	}
+	.editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container, .hentry .entry-content .wp-block-cover .wp-block-cover__inner-container {
+		padding: 0;
 	}
 }
 
