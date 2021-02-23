@@ -9,6 +9,13 @@ add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 require 'shortcode-calculator.php';
 
+function bestelgrindenzand_meta() { ?>
+
+	<meta name="description" content="Heeft u zand of grind nodig? Bestel hier goedkoop grind en zand online. Wij leveren topkwaliteit grind en zand en bezorgen op iedere gewenste locatie in Nederland in hele of halve bigbag." />
+
+<?php }
+add_action( 'wp_head', 'bestelgrindenzand_meta', 10 );
+
 
 function bestelgrindenzand_tracking() { ?>
 
@@ -195,7 +202,7 @@ add_filter( 'woocommerce_product_tabs', 'rekenhulp_tab' );
 function rekenhulp_tab_callback() {
 	global $product;
 
-	echo '<h2>Rekenhulp</h2>';
+	echo '<h2>Rekenhulp' . ' ' . $product->get_name() . '</h2>';
 	echo '<p>Met behulp van onderstaande rekenhulp kunt u eenvoudig berekenen hoeveel ';
 	echo strtolower($product->get_name());
 	echo ' u nodig heeft voor uw toepassing.</p>';
@@ -210,7 +217,7 @@ function rekenhulp_tab_callback() {
 
 function seo_description_product_tab() {
 	global $product;
-	return __('Productinformatie', 'bestelgrindenzand') . ' ' . $product->get_name();
+	return __('Productbeschrijving', 'bestelgrindenzand') . ' ' . $product->get_name();
 }
 add_filter( 'woocommerce_product_description_heading', 'seo_description_product_tab' );
 
