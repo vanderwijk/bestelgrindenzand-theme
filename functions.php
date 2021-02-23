@@ -9,7 +9,7 @@ add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 require 'shortcode-calculator.php';
 
-// Meta description for 
+// Meta description for hompepage only
 function bestelgrindenzand_meta() { 
 	if ( is_front_page() ) { ?>
 
@@ -32,6 +32,8 @@ function bestelgrindenzand_tracking() { ?>
 	gtag('config', 'AW-666638924');
 </script>
 
+<?php if ( !is_user_logged_in() ) {  // HotJar only for logged out users ?>
+
 <!-- Hotjar Tracking Code for https://bestelgrindenzand.nl -->
 <script>
 (function(h,o,t,j,a,r){
@@ -45,6 +47,7 @@ function bestelgrindenzand_tracking() { ?>
 </script>
 
 <?php }
+}
 add_action( 'wp_head', 'bestelgrindenzand_tracking', 10 );
 
 
