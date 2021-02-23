@@ -9,11 +9,14 @@ add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 require 'shortcode-calculator.php';
 
-function bestelgrindenzand_meta() { ?>
+// Meta description for 
+function bestelgrindenzand_meta() { 
+	if ( is_front_page() ) { ?>
 
 	<meta name="description" content="Heeft u zand of grind nodig? Bestel hier goedkoop grind en zand online. Wij leveren topkwaliteit grind en zand en bezorgen op iedere gewenste locatie in Nederland in hele of halve bigbag." />
 
 <?php }
+}
 add_action( 'wp_head', 'bestelgrindenzand_meta', 10 );
 
 
