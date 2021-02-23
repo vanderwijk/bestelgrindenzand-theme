@@ -5,7 +5,7 @@ Author:       	Johan van der Wijk
 Author URI:     https://thewebworks.nl
 Template:     	storefront
 Description:  	This is a child theme for the WooThemes StoreFront theme
-Version:      	1.0.0
+Version:      	1.0.1
 Text Domain:  	bestelgrindenzand
 */
 
@@ -265,6 +265,10 @@ p+h2 {
 
 .calculator input[type='number'] {
 	background-color: #ffffff;
+}
+
+.calculator input[type='radio'] {
+	margin: 16px 18px 16px 8px;
 }
 
 .radiobuttons label,
