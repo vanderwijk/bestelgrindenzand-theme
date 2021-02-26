@@ -244,7 +244,7 @@ function filter_woocommerce_structured_data_product( $markup, $product ) {
 	$markup['mpn'] = $markup['sku'];
 	return $markup;
 };
-add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
+//add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
 
 
 // Search box placeholder
