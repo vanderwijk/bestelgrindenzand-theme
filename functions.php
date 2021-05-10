@@ -124,16 +124,41 @@ function bestelgrindenzand_remove_actions() {
 if ( ! function_exists( 'storefront_credit' ) ) {
 	function storefront_credit() {
 		?>
-		<div class="site-info">
-			<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
-			<?php if ( apply_filters( 'storefront_credit_link', true ) ) { ?>
-			<br />
-			<?php
-				if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
-					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span><a href="https://thewebworks.nl/">The Web Works</a>' );
-				}
-			?>
-			<?php } ?>
+		<div class="flex">
+			<select class="jump-menu" onchange="javascript:location.href = this.value;">
+				<option value="https://bestelgrindenzand.nl/">Snelmenu</option>
+				<option value="https://bestelgrindenzand.nl/product/schelpen/">Schelpen</option>
+				<option value="https://bestelgrindenzand.nl/product/betonzand/">Betonzand</option>
+				<option value="https://bestelgrindenzand.nl/product/voegzand/">Voegzand </option>
+				<option value="https://bestelgrindenzand.nl/product/zilverzand/">Zilverzand</option>
+				<option value="https://bestelgrindenzand.nl/product/tuingrind-8-16/">Tuingrind 8-16 </option>
+				<option value="https://bestelgrindenzand.nl/product/dakgrind-16-32/">Dakgrind 16-32 </option>
+				<option value="https://bestelgrindenzand.nl/product/tuingrind-8-16/">Tuingrind </option>
+				<option value="https://bestelgrindenzand.nl/product/ophoogzand/">Ophoogzand</option>
+				<option value="https://bestelgrindenzand.nl/product/metselzand/">Metselzand</option>
+				<option value="https://bestelgrindenzand.nl/product/brekerzand/">Brekerzand</option>
+				<option value="https://bestelgrindenzand.nl/product/speelzand/">Speelzand </option>
+				<option value="https://bestelgrindenzand.nl/straatzand/ ">Straatzand</option>
+				<option value="https://bestelgrindenzand.nl/zandbakzand/">Zandbakzand</option>
+				<option value="https://bestelgrindenzand.nl/bigbag-betonzand/">Bigbag betonzand</option>
+				<option value="https://bestelgrindenzand.nl/siergrind/">Siergrind</option>
+				<option value="https://bestelgrindenzand.nl/big-bag-siergrind/">Big bag siergrind</option>
+				<option value="https://bestelgrindenzand.nl/dakgrind/">Dakgrind</option>
+				<option value="https://bestelgrindenzand.nl/bigbag-ophoogzand/">Bigbag ophoogzand</option>
+				<option value="https://bestelgrindenzand.nl/bigbag-metselzand/">Bigbag metselzand</option>
+				<option value="https://bestelgrindenzand.nl/bigbag-brekerzand/">Bigbag brekerzand </option>
+			</select>
+			<div class="site-info">
+				<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
+				<?php if ( apply_filters( 'storefront_credit_link', true ) ) { ?>
+				<br />
+				<?php
+					if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
+						the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span><a href="https://thewebworks.nl/">The Web Works</a>' );
+					}
+				?>
+				<?php } ?>
+			</div>
 		</div>
 		<?php
 	}
