@@ -143,10 +143,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
 
 /* Cart */
-button.alt,
-.button.alt {
-	background-color: #f4244a !important;
-	border-color: #f4244a !important;
+.single-product div.product table.variations select {
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 8px 10px;
 }
 
 .required,
