@@ -33,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php }
 add_action( 'wp_head', 'bestelgrindenzand_scripts_head', 10 );
 
+
 function bestelgrindenzand_scripts_body() { ?>
 
 <!-- Google Tag Manager (noscript) -->
@@ -77,7 +78,7 @@ add_action( 'wp_footer', 'bestelgrindenzand_dynamic_remarketing', 10 );
 
 
 // Conversion tracking
-function track_conversion( $order_id ) {
+function bestelgrindenzand_track_conversion( $order_id ) {
 
 	if ( ! $order_id ) {
 		return;
@@ -99,7 +100,7 @@ function track_conversion( $order_id ) {
 
 	}
 }
-add_action('woocommerce_thankyou', 'track_conversion', 10, 1);
+add_action('woocommerce_thankyou', 'bestelgrindenzand_track_conversion', 10, 1);
 
 
 // Add backend styles for Gutenberg.
@@ -251,18 +252,18 @@ function rekenhulp_tab_callback() {
 }
 
 
-function seo_description_product_tab() {
+function bestelgrindenzand_seo_description_product_tab() {
 	global $product;
 	return __('Productbeschrijving', 'bestelgrindenzand') . ' ' . $product->get_name();
 }
-add_filter( 'woocommerce_product_description_heading', 'seo_description_product_tab' );
+add_filter( 'woocommerce_product_description_heading', 'bestelgrindenzand_seo_description_product_tab' );
 
 
-function seo_add_to_cart_button() {
+function bestelgrindenzand_seo_add_to_cart_button() {
 	global $product;
 	return __('Bestel', 'bestelgrindenzand') . ' ' . $product->get_name();
 }
-add_filter( 'woocommerce_product_add_to_cart_text','seo_add_to_cart_button' );
+add_filter( 'woocommerce_product_add_to_cart_text','bestelgrindenzand_seo_add_to_cart_button' );
 
 
 // Fix search console errors
@@ -273,6 +274,12 @@ function filter_woocommerce_structured_data_product( $markup, $product ) {
 	return $markup;
 };
 //add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
+
+// Remove structured product data from archives
+function bestelgrindenzand_remove_product_schema_product_archive() {
+	remove_action( 'woocommerce_shop_loop', array( WC()->structured_data, 'generate_product_data' ), 10, 0 );
+}
+add_action( 'woocommerce_init', 'bestelgrindenzand_remove_product_schema_product_archive' );
 
 
 // Search box placeholder
