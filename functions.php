@@ -1,10 +1,25 @@
 <?php
 
+define('BESTELGRINDENZAND_THEME_VER', '1.1.6');
+
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
 	load_child_theme_textdomain( 'bestelgrindenzand', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
+
+
+// Rankmath collapsible FAQ
+function bestelgrindenzand_scripts_styles () {
+
+	wp_register_script( 'faq-accordion', get_stylesheet_directory_uri() . '/assets/js/faq-accordion.js', array( 'jquery' ), BESTELGRINDENZAND_THEME_VER, true );
+
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'faq-accordion' );
+	}
+
+}
+add_action( 'wp_enqueue_scripts', 'bestelgrindenzand_scripts_styles' );
 
 
 require 'shortcode-calculator.php';

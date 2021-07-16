@@ -360,3 +360,56 @@ p+h2 {
 	margin-bottom: .5em;
 	margin-top: .5em;
 }
+
+
+/* Rank Math FAQ */
+
+.faq h3 {
+	font-size: 1.250em;
+}
+.faq h4 {
+	font-size: 1em;
+}
+
+.wp-block-group.faq {
+	background-color: rgba(97, 128, 113, 0.15);
+	border-radius: 1em;
+	padding: 1.25em;
+}
+
+.rank-math-list-item {
+	border-bottom: 1px solid #fff;
+	margin: 1em 0;
+}
+
+.rank-math-list-item:last-child {
+	border: none;
+	margin-bottom: 0;
+}
+
+.rank-math-question {
+	color:rgba(97, 128, 113, 1);
+	cursor: pointer;
+	position: relative;
+	display: block;
+	padding-right: 1.5em;
+	margin-right: .5em;
+}
+
+.rank-math-question:after {
+	position: absolute;
+	right: 5px;
+	top: 0;
+	content: '\2715';
+	transform: rotate(-45deg);
+	transition: all 150ms ease-in-out;
+}
+
+.rank-math-question.collapse:after {
+	transform: rotate(0deg);
+}
+
+.rank-math-question:hover {
+	color:rgba(72, 103, 88, 1);
+	
+}
