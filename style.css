@@ -5,7 +5,7 @@ Author:       	Johan van der Wijk
 Author URI:     https://thewebworks.nl
 Template:     	storefront
 Description:  	This is a child theme for the WooThemes StoreFront theme
-Version:      	1.1.5
+Version:      	1.1.6
 Text Domain:  	bestelgrindenzand
 */
 
@@ -51,7 +51,7 @@ body {
 	margin-bottom: .25em;
 }
 
-.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container h3 {
+.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container h2 {
 	font-size: 2em;
 	line-height: 1.250em;
 }
@@ -88,7 +88,7 @@ body {
 		line-height: 1.1;
 		font-size: 2.25em;
 	}
-	.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h3 {
+	.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h2 {
 		font-size: 1.5em;
 	}
 	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container {
