@@ -1,6 +1,6 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.1.6');
+define('BESTELGRINDENZAND_THEME_VER', '1.1.7');
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
@@ -9,7 +9,6 @@ function bestelgrindenzand_child_theme_setup() {
 add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 
-// Rankmath collapsible FAQ
 function bestelgrindenzand_scripts_styles () {
 
 	wp_register_script( 'faq-accordion', get_stylesheet_directory_uri() . '/assets/js/faq-accordion.js', array( 'jquery' ), BESTELGRINDENZAND_THEME_VER, true );
