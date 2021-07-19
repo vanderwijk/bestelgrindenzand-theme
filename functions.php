@@ -300,3 +300,11 @@ function bestelgrindenzand_text_strings( $translated_text, $text, $domain ) {
 	return $translated_text;
 }
 add_filter( 'gettext', 'bestelgrindenzand_text_strings', 20, 3 );
+
+
+// Allow SVG image uploads
+function bestelgrindenzand_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'bestelgrindenzand_mime_types');
