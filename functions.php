@@ -11,6 +11,8 @@ add_action( 'after_setup_theme', 'bestelgrindenzand_child_theme_setup' );
 
 function bestelgrindenzand_scripts_styles () {
 
+	wp_dequeue_style( 'storefront-fonts' );
+
 	wp_register_script( 'faq-accordion', get_stylesheet_directory_uri() . '/assets/js/faq-accordion.js', array( 'jquery' ), BESTELGRINDENZAND_THEME_VER, true );
 
 	if ( is_front_page() ) {
