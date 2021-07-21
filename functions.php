@@ -20,7 +20,7 @@ function bestelgrindenzand_scripts_styles () {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'bestelgrindenzand_scripts_styles', 100 );
+add_action( 'wp_enqueue_scripts', 'bestelgrindenzand_scripts_styles', 999 );
 
 
 require 'shortcode-calculator.php';
