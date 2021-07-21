@@ -55,6 +55,13 @@ function bestelgrindenzand_scripts_body() { ?>
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Blackbird -->
+<script>
+	var bbToken = "Rkf59tmCVovCSuCy3V799T5d";
+	var bbDomain = "bestelgrindenzand.nl";
+</script>
+<script async src="https://blackbird.b-cdn.net/blackbird-v2.min.js"></script>
+
 <?php }
 add_action( 'wp_body_open', 'bestelgrindenzand_scripts_body', 10 );
 
@@ -111,6 +118,20 @@ function bestelgrindenzand_track_conversion( $order_id ) {
 			  'transaction_id': '" . $order_id . "'
 		  });
 		</script>";
+
+		echo "<script>
+		(function(){
+		  if (document.readyState === 'complete') {
+			// Replace the 100 below with the total purchase amount
+			blackbirdRUM.conversion(" . $order->get_total() . ");
+		  } else {
+			window.addEventListener('load', function(){
+			  // Replace the 100 below with the total purchase amount
+			  blackbirdRUM.conversion(" . $order->get_total() . ");
+			}
+		  )};
+		})();
+	  </script>";
 
 	}
 }
