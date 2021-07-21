@@ -5,7 +5,7 @@ Author:       	Johan van der Wijk
 Author URI:     https://thewebworks.nl
 Template:     	storefront
 Description:  	This is a child theme for the WooThemes StoreFront theme
-Version:      	1.1.7
+Version:      	1.1.8
 Text Domain:  	bestelgrindenzand
 */
 
@@ -37,6 +37,20 @@ src: local(''),
 		url('./assets/fonts/source-sans-pro-v14-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
 		url('./assets/fonts/source-sans-pro-v14-latin-600.svg#SourceSansPro') format('svg'); /* Legacy iOS */
 }
+/* source-sans-pro-700 - latin */
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('./assets/fonts/source-sans-pro-v14-latin-700.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		 url('./assets/fonts/source-sans-pro-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('./assets/fonts/source-sans-pro-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+		 url('./assets/fonts/source-sans-pro-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+		 url('./assets/fonts/source-sans-pro-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+		 url('./assets/fonts/source-sans-pro-v14-latin-700.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+  }
 
 h1,
 h2,
