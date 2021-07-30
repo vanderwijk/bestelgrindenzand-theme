@@ -50,7 +50,34 @@ src: local(''),
 		 url('./assets/fonts/source-sans-pro-v14-latin-700.woff') format('woff'), /* Modern Browsers */
 		 url('./assets/fonts/source-sans-pro-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
 		 url('./assets/fonts/source-sans-pro-v14-latin-700.svg#SourceSansPro') format('svg'); /* Legacy iOS */
-  }
+}
+
+/*
+@font-face {
+	font-family: 'star';
+	src: url('/wp-content/plugins/woocommerce/assets/fonts/star.eot');
+	src:
+		url('/wp-content/plugins/woocommerce/assets/fonts/star.eot?#iefix') format('embedded-opentype'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/star.woff') format('woff'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/star.ttf') format('truetype'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/star.svg#star') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'WooCommerce';
+	src: url('/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot');
+	src:
+		url('/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix') format('embedded-opentype'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff') format('woff'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.ttf') format('truetype'),
+		url('/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+*/
 
 h1,
 h2,
