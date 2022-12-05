@@ -302,3 +302,19 @@ function bestelgrindenzand_text_strings( $translated_text, $text, $domain ) {
 	return $translated_text;
 }
 add_filter( 'gettext', 'bestelgrindenzand_text_strings', 20, 3 );
+
+// Disable Simple history access for non-admins
+add_filter(
+	'simple_history/view_history_capability',
+	function ( $capability ) {
+		$capability = 'manage_options';
+		return $capability;
+	}
+);
+
+add_filter(
+	'simple_history/add_admin_bar_menu_item',
+	function () {
+		return false;
+	}
+);
