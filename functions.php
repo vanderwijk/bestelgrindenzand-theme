@@ -1,6 +1,6 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.2.2');
+define('BESTELGRINDENZAND_THEME_VER', '1.2.3');
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
@@ -331,6 +331,7 @@ function bestelgrindenzand_disable_rest_endpoints ( $endpoints ) {
 	return $endpoints;
 }
 add_filter( 'rest_endpoints', 'bestelgrindenzand_disable_rest_endpoints');
+
 
 // security hardening, prevent access to author pages
 function bestelgrindenzand_redirect_to_home_if_author_parameter() {

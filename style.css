@@ -5,7 +5,7 @@ Author:       	Johan van der Wijk
 Author URI:     https://thewebworks.nl
 Template:     	storefront
 Description:  	This is a child theme for the WooThemes StoreFront theme
-Version:      	1.2.2
+Version:      	1.2.3
 Text Domain:  	bestelgrindenzand
 */
 
@@ -25,10 +25,10 @@ Text Domain:  	bestelgrindenzand
 
 /* source-sans-pro-regular - latin */
 @font-face {
+	font-display: swap;
 	font-family: 'Source Sans Pro';
 	font-style: normal;
 	font-weight: 400;
-	font-display: swap;
 	src: url('./assets/fonts/source-sans-pro-v14-latin-regular.eot'); /* IE9 Compat Modes */
 	src: local(''),
 		 url('./assets/fonts/source-sans-pro-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -39,10 +39,10 @@ Text Domain:  	bestelgrindenzand
 }
 /* source-sans-pro-600 - latin */
 @font-face {
+font-display: swap;
 font-family: 'Source Sans Pro';
 font-style: normal;
 font-weight: 600;
-font-display: swap;
 src: url('./assets/fonts/source-sans-pro-v14-latin-600.eot'); /* IE9 Compat Modes */
 src: local(''),
 		url('./assets/fonts/source-sans-pro-v14-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -53,10 +53,10 @@ src: local(''),
 }
 /* source-sans-pro-700 - latin */
 @font-face {
+	font-display: swap;
 	font-family: 'Source Sans Pro';
 	font-style: normal;
 	font-weight: 700;
-	font-display: swap;
 	src: url('./assets/fonts/source-sans-pro-v14-latin-700.eot'); /* IE9 Compat Modes */
 	src: local(''),
 		 url('./assets/fonts/source-sans-pro-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -106,9 +106,11 @@ body {
 	color: var(--bgz-dark);
 }
 
+
 /* Header */
 .site .site-header {
 	background-color: var(--bgz-light);
+	border-bottom: 2px solid var(--bgz-base-light);
 }
 
 .main-navigation ul li a {
@@ -123,7 +125,6 @@ body {
 }
 
 .wp-block-cover {
-	border-top: 2px solid var(--bgz-base-light);
 	border-bottom: 2px solid var(--bgz-base-light);
 	min-height: auto;
 	width: auto;
@@ -146,10 +147,9 @@ body {
 }
 
 @media (min-width: 768px) {
-
 	.hentry .entry-content .wp-block-cover .wp-block-cover__inner-container {
-		padding-top: 1em;
 		padding-bottom: 1em;
+		padding-top: 1em;
 	}
 
 	.site-branding {
@@ -174,8 +174,8 @@ body {
 		padding: 1em 0;
 	}
 	.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h1 {
-		line-height: 1.1;
 		font-size: 2.25em;
+		line-height: 1.1;
 	}
 	.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover h2 {
 		font-size: 1.5em;
@@ -185,8 +185,8 @@ body {
 	}
 	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover,
 	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-image {
-		margin-bottom: 2em;
 		background-color: var(--bgz-light)!important;
+		margin-bottom: 2em;
 	}
 }
 
@@ -194,6 +194,7 @@ body {
 button, input[type="button"], input[type="reset"], input[type="submit"], .button, .widget a.button {
 	border-radius: 5px;
 }
+
 
 /* Home */
 .home .wp-block-columns {
@@ -208,18 +209,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 	margin-bottom: 2em;
 }
 
+
 /* Product */
 .soldout {
 	background: red;
 	border-radius: 50%;
-
-	width: 13px;
 	height: 13px;
-
+	left: 10px;
 	position: absolute;
 	top: 10px;
-	left: 10px;
-
+	width: 13px;
 	z-index: 5;
 }
 
@@ -247,7 +246,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
 
 /* Cart */
-
 body.woocommerce-cart .footer-widgets,
 body.woocommerce-checkout .footer-widgets {
 	display: none;
@@ -265,16 +263,18 @@ a.remove::before {
 }
 
 .widget.woocommerce.widget_shopping_cart {
+	border-bottom: 1px solid rgba(0,0,0,.05);
 	border-left: 1px solid rgba(0,0,0,.05);
 	border-right: 1px solid rgba(0,0,0,.05);
-	border-bottom: 1px solid rgba(0,0,0,.05);
 	box-shadow: 0px 0px 2px rgba(0,0,0,.05);
 }
+
 
 /* Checkout */
 #billing_country_field {
 	display: none;
 }
+
 
 /* Checkmarks list */
 .checkmarks {
@@ -291,12 +291,14 @@ a.remove::before {
 	margin-right: 5px;
 }
 
+
 /* Blog */
 .posted-on,
 .post-author,
 .post-comments {
 	display: none;
 }
+
 
 /* Gravity forms validation */
 .gform_wrapper .gfield_required {
@@ -305,14 +307,14 @@ a.remove::before {
 
 .gform_wrapper div.validation_error,
 .gform_wrapper .validation_message {
-	color: var(--bgz-accent) !important;
 	border-color: var(--bgz-accent) !important;
+	color: var(--bgz-accent) !important;
 }
 
 .gform_wrapper li.gfield.gfield_error,
 .gform_wrapper .field_description_below .gfield_description {
-	border: none !important;
 	background-color: transparent !important;
+	border: none !important;
 	padding: 0 !important;
 }
 
@@ -320,6 +322,7 @@ a.remove::before {
 .gform_wrapper li.gfield_error textarea {
 	border-color: var(--bgz-accent) !important;
 }
+
 
 /* Footer */
 .site-footer {
@@ -358,19 +361,21 @@ a.remove::before {
 
 .site-footer .widget table td,
 .site-footer .widget table th {
-	padding: .5em 1em;
 	border-bottom: 1px solid rgba(0,0,0,.05);
+	padding: .5em 1em;
 }
 
 p+h2 {
 	margin-top: 0.290684em;
 }
 
+
 /* Home */
 .home .content-area,
 .home .site-main {
 	margin-bottom: 0;
 }
+
 
 /* Rekenhulp
 ----------------------------------------------------------------------------------------------------*/
@@ -379,8 +384,8 @@ p+h2 {
 	background-color: rgba(131, 123, 124, 0.1);
 	border: 1px dashed #837b7c;
 	font-size: 18px;
-	padding: 20px;
 	margin-bottom: 20px;
+	padding: 20px;
 }
 
 .calculator label,
@@ -394,10 +399,10 @@ p+h2 {
 }
 
 .calculator input {
-	margin-bottom: 16px;
-	width: 25%;
-	padding: 5px;
 	font-size: 18px;
+	margin-bottom: 16px;
+	padding: 5px;
+	width: 25%;
 }
 
 .calculator input[type='number'] {
@@ -424,11 +429,11 @@ p+h2 {
 }
 
 .site-footer .flex {
+	align-content: flex-start;
+	align-items: center;
 	display: flex;
 	flex-direction: row;
-	align-content: flex-start;
 	justify-content: space-between;
-	align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -447,10 +452,11 @@ p+h2 {
 	text-align: right;
 }
 
+
 /* Product page */
 .woocommerce-tabs .panel h2:first-of-type {
-	margin-top: 0;
 	margin-bottom: .5em;
+	margin-top: 0;
 }
 .woocommerce-tabs .panel h2 {
 	font-size: 1.618em;
@@ -465,7 +471,6 @@ p+h2 {
 
 
 /* Rank Math FAQ */
-
 .faq h3 {
 	font-size: 1.250em;
 }
@@ -493,17 +498,17 @@ p+h2 {
 .rank-math-question {
 	color:var(--bgz-base);
 	cursor: pointer;
-	position: relative;
 	display: block;
-	padding-right: 1.5em;
 	margin-right: .5em;
+	padding-right: 1.5em;
+	position: relative;
 }
 
 .rank-math-question:after {
+	content: '\2715';
 	position: absolute;
 	right: 5px;
 	top: 0;
-	content: '\2715';
 	transform: rotate(-45deg);
 	transition: all 150ms ease-in-out;
 }
