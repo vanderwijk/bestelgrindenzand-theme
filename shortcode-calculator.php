@@ -136,7 +136,7 @@ function shortcode_vullen_zandbak( $atts, $content ) {
     });
     </script>
 
-    <h3>Bereken de benodigde hoeveelheid speelzand om de zandbak te vullen</h3>
+    <h3>De benodigde hoeveelheid speelzand om de zandbak te vullen</h3>
 
     <form id="rekentool" class="calculator">
 
