@@ -9,6 +9,20 @@ Version:      	1.2.0
 Text Domain:  	bestelgrindenzand
 */
 
+/* Colors
+---------------------------------------- */
+:root {
+
+	--bgz-dark: #333;
+	--bgz-dark-medium: #313131;
+	--bgz-light: #fff;
+
+	--bgz-accent: #f4244a;
+	--bgz-base: #41554b;
+	--bgz-base-light: #d8dad3;
+	--bgz-base-lightest: #f1f2eb;
+}
+
 /* source-sans-pro-regular - latin */
 @font-face {
 	font-family: 'Source Sans Pro';
@@ -89,12 +103,12 @@ h6 {
 }
 
 body {
-	color: #333;
+	color: var(--bgz-dark);
 }
 
 /* Header */
 .site .site-header {
-	background-color: #fff;
+	background-color: var(--bgz-light);
 }
 
 .main-navigation ul li a {
@@ -105,12 +119,12 @@ body {
 .main-navigation ul li:hover>a,
 .site-title a:hover,
 .site-header ul.menu li.current-menu-item>a {
-	color: #313131;
+	color: var(--bgz-dark-medium);
 }
 
 .wp-block-cover {
-	border-top: 2px solid #d8dad3;
-	border-bottom: 2px solid #d8dad3;
+	border-top: 2px solid var(--bgz-base-light);
+	border-bottom: 2px solid var(--bgz-base-light);
 	min-height: auto;
 	width: auto;
 }
@@ -172,7 +186,7 @@ body {
 	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover,
 	.home.page-template-template-fullwidth .hentry .entry-content>.wp-block-image {
 		margin-bottom: 2em;
-		background-color: #fff!important;
+		background-color: var(--bgz-light)!important;
 	}
 }
 
@@ -223,7 +237,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 }
 
 .variations label {
-	color: #f4244a;
+	color: var(--bgz-accent);
 	font-weight: 600;
 }
 
@@ -241,7 +255,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
 .required,
 a.remove::before {
-	color: #f4244a !important;
+	color: var(--bgz-accent) !important;
 }
 
 .widget.woocommerce.widget_shopping_cart {
@@ -280,13 +294,13 @@ a.remove::before {
 
 /* Gravity forms validation */
 .gform_wrapper .gfield_required {
-	color: #f4244a !important;
+	color: var(--bgz-accent) !important;
 }
 
 .gform_wrapper div.validation_error,
 .gform_wrapper .validation_message {
-	color: #f4244a !important;
-	border-color: #f4244a !important;
+	color: var(--bgz-accent) !important;
+	border-color: var(--bgz-accent) !important;
 }
 
 .gform_wrapper li.gfield.gfield_error,
@@ -298,13 +312,13 @@ a.remove::before {
 
 .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 .gform_wrapper li.gfield_error textarea {
-	border-color: #f4244a !important;
+	border-color: var(--bgz-accent) !important;
 }
 
 /* Footer */
 .site-footer {
-	border-top: 2px solid #d8dad3;;
-	color: #333;
+	border-top: 2px solid var(--bgz-base-light);;
+	color: var(--bgz-dark);
 }
 
 .site-info {
@@ -318,7 +332,7 @@ a.remove::before {
 }
 
 .site-footer a:not(.button):not(.components-button) {
-	color: #618071;
+	color: var(--bgz-base);
 }
 
 .widget {
@@ -381,7 +395,7 @@ p+h2 {
 }
 
 .calculator input[type='number'] {
-	background-color: #ffffff;
+	background-color: var(--bgz-light);
 }
 
 .calculator input[type='radio'] {
@@ -395,7 +409,7 @@ p+h2 {
 }
 
 .calculator span.result {
-	color: #f4244a;
+	color: var(--bgz-accent);
 	font-weight: 600;
 }
 
@@ -454,14 +468,14 @@ p+h2 {
 }
 
 .wp-block-group.faq {
-	background-color: #f1f2eb;
-	border: 2px solid #d8dad3;
+	background-color: var(--bgz-base-lightest);
+	border: 2px solid var(--bgz-base-light);
 	border-radius: 1em;
 	padding: 1.25em;
 }
 
 .rank-math-list-item {
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid var(--bgz-light);
 	margin: 1em 0;
 }
 
@@ -471,7 +485,7 @@ p+h2 {
 }
 
 .rank-math-question {
-	color:rgba(97, 128, 113, 1);
+	color:var(--bgz-base);
 	cursor: pointer;
 	position: relative;
 	display: block;
@@ -493,6 +507,5 @@ p+h2 {
 }
 
 .rank-math-question:hover {
-	color:rgba(72, 103, 88, 1);
-	
+	color: var(--bgz-base);
 }
