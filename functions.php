@@ -1,6 +1,6 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.2.1');
+define('BESTELGRINDENZAND_THEME_VER', '1.2.2');
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
@@ -318,3 +318,26 @@ add_filter(
 		return false;
 	}
 );
+
+
+// security hardening, disable REST API for users endpoint
+function bestelgrindenzand_disable_rest_endpoints ( $endpoints ) {
+	if ( isset( $endpoints['/wp/v2/users'] ) ) {
+		unset( $endpoints['/wp/v2/users'] );
+	}
+	if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+		unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+	}
+	return $endpoints;
+}
+add_filter( 'rest_endpoints', 'bestelgrindenzand_disable_rest_endpoints');
+
+// security hardening, prevent access to author pages
+function bestelgrindenzand_redirect_to_home_if_author_parameter() {
+	$is_author_set = get_query_var( 'author', '' );
+	if ( $is_author_set != '' && !is_admin()) {
+		wp_redirect( home_url(), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'bestelgrindenzand_redirect_to_home_if_author_parameter' );
