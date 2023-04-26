@@ -136,7 +136,7 @@ function shortcode_vullen_zandbak( $atts, $content ) {
     });
     </script>
 
-    <h3>Vullen Zandbak</h3>
+    <h3>Bereken de benodigde hoeveelheid speelzand om de zandbak te vullen</h3>
 
     <form id="rekentool" class="calculator">
 
@@ -149,7 +149,7 @@ function shortcode_vullen_zandbak( $atts, $content ) {
         <label for="hoogte">Hoogte (centimeter)</label>
         <input type="number" step="any" id="hoogte">
 
-        <p><strong>Benodigde hoeveelheid zand:</strong> <span class="result" id="resultaat"></span></p>
+        <p><strong>Benodigde hoeveelheid speelzand:</strong> <span class="result" id="resultaat"></span></p>
     </form>
 
     <?php 
