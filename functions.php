@@ -1,6 +1,6 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.3.0');
+define('BESTELGRINDENZAND_THEME_VER', '1.3.1');
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
@@ -106,12 +106,12 @@ function bestelgrindenzand_track_conversion( $order_id ) {
 	if ( $order->is_paid() ) {
 		echo "<!-- Event snippet for Aankoop bestelgrindenzand.nl conversion page -->
 		<script>
-		  gtag('event', 'conversion', {
-			  'send_to': 'AW-666638924/dbfGCMrB_PYBEMy08L0C',
-			  'value': " . $order->get_total() . ",
-			  'currency': 'EUR',
-			  'transaction_id': '" . $order_id . "'
-		  });
+			gtag('event', 'conversion', {
+				'send_to': 'AW-666638924/dbfGCMrB_PYBEMy08L0C',
+				'value': " . $order->get_total() . ",
+				'currency': 'EUR',
+				'transaction_id': '" . $order_id . "'
+			});
 		</script>";
 
 	}
