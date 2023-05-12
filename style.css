@@ -388,6 +388,11 @@ a.remove::before {
 	padding: .5em 1em;
 }
 
+/* home icon in mobile footer bar */
+.storefront-handheld-footer-bar ul li.home > a:before {
+	content: "\f015";
+}
+
 p+h2 {
 	margin-top: 0.290684em;
 }

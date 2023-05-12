@@ -189,6 +189,26 @@ function storefront_handheld_footer_bar_search(): void {
 }
 
 
+// add a home link to the mobile footer bar
+function bestelgrindenzand_add_home_link( $links ) {
+	$new_links = array (
+		'home' => array (
+			'priority' => 10,
+			'callback' => 'bestelgrindenzand_home_link',
+		),
+	);
+
+	$links = array_merge ( $new_links, $links );
+
+	return $links;
+}
+add_filter ( 'storefront_handheld_footer_bar_links', 'bestelgrindenzand_add_home_link' );
+
+function bestelgrindenzand_home_link () {
+	echo '<a href="' . esc_url ( home_url( '/' ) ) . '">' . __ ( 'Home' ) . '</a>';
+}
+
+
 function bestelgrindenzand_checkout_bezorgdatum( $checkout ) {
 	echo '<div id="bezorgdatum"><h2>' . __('Gewenste bezorgdatum') . '</h2>';
 	echo '<p>Het is niet mogelijk minder dan 24 uur vooruit te bestellen, wilt u uw bestelling eerder ontvangen, neem dan telefonisch contact met ons op voor de mogelijkheden.</p>';
