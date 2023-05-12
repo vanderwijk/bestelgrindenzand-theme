@@ -182,6 +182,13 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 }
 
 
+// change the mobile search link to fix pagespeed issue
+function storefront_handheld_footer_bar_search(): void {
+	echo '<a href="javascript:;">' . esc_attr__('Search', 'storefront') . '</a>';
+	storefront_product_search();
+}
+
+
 function bestelgrindenzand_checkout_bezorgdatum( $checkout ) {
 	echo '<div id="bezorgdatum"><h2>' . __('Gewenste bezorgdatum') . '</h2>';
 	echo '<p>Het is niet mogelijk minder dan 24 uur vooruit te bestellen, wilt u uw bestelling eerder ontvangen, neem dan telefonisch contact met ons op voor de mogelijkheden.</p>';
