@@ -1,6 +1,6 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.3.2');
+define('BESTELGRINDENZAND_THEME_VER', '1.3.3');
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
