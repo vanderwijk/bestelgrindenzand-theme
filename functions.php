@@ -238,7 +238,7 @@ function bestelgrindenzand_order_meta_keys( $keys ) {
 	$keys[] = 'bezorgtijd';
 	return $keys;
 }
-//add_filter('woocommerce_email_order_meta_keys', 'bestelgrindenzand_order_meta_keys');
+//add_filter ('woocommerce_email_order_meta_keys', 'bestelgrindenzand_order_meta_keys');
 
 
 function bestelgrindenzand_remove_menu_items(){
@@ -261,8 +261,8 @@ function bestelgrindenzand_variation_price_format( $price, $product ) {
 	}
 	return $price;
 }
-add_filter( 'woocommerce_variable_sale_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
-add_filter( 'woocommerce_variable_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
+add_filter ( 'woocommerce_variable_sale_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
+add_filter ( 'woocommerce_variable_price_html', 'bestelgrindenzand_variation_price_format', 10, 2 );
 
 
 function rekenhulp_tab( $tabs ) {
@@ -276,7 +276,7 @@ function rekenhulp_tab( $tabs ) {
 	}
 	return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'rekenhulp_tab' );
+add_filter ( 'woocommerce_product_tabs', 'rekenhulp_tab' );
 
 
 function rekenhulp_tab_callback() {
@@ -299,14 +299,15 @@ function bestelgrindenzand_seo_description_product_tab() {
 	global $product;
 	return __('Productbeschrijving', 'bestelgrindenzand') . ' ' . $product->get_name();
 }
-add_filter( 'woocommerce_product_description_heading', 'bestelgrindenzand_seo_description_product_tab' );
+add_filter ( 'woocommerce_product_description_heading', 'bestelgrindenzand_seo_description_product_tab' );
 
 
 function bestelgrindenzand_seo_add_to_cart_button() {
+	// todo: this causes an error when using WooCommerce blocks
 	global $product;
 	return __('Bestel', 'bestelgrindenzand') . ' ' . $product->get_name();
 }
-add_filter( 'woocommerce_product_add_to_cart_text','bestelgrindenzand_seo_add_to_cart_button' );
+add_filter ( 'woocommerce_product_add_to_cart_text','bestelgrindenzand_seo_add_to_cart_button' );
 
 
 // Fix search console errors
@@ -316,7 +317,7 @@ function filter_woocommerce_structured_data_product( $markup, $product ) {
 	$markup['mpn'] = $markup['sku'];
 	return $markup;
 };
-//add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
+//add_filter ( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
 
 
 // Search box placeholder
@@ -328,10 +329,10 @@ function bestelgrindenzand_text_strings( $translated_text, $text, $domain ) {
 	}
 	return $translated_text;
 }
-add_filter( 'gettext', 'bestelgrindenzand_text_strings', 20, 3 );
+add_filter ( 'gettext', 'bestelgrindenzand_text_strings', 20, 3 );
 
 // Disable Simple history access for non-admins
-add_filter(
+add_filter (
 	'simple_history/view_history_capability',
 	function ( $capability ) {
 		$capability = 'manage_options';
@@ -339,7 +340,7 @@ add_filter(
 	}
 );
 
-add_filter(
+add_filter (
 	'simple_history/add_admin_bar_menu_item',
 	function () {
 		return false;
@@ -357,7 +358,7 @@ function bestelgrindenzand_disable_rest_endpoints ( $endpoints ) {
 	}
 	return $endpoints;
 }
-add_filter( 'rest_endpoints', 'bestelgrindenzand_disable_rest_endpoints');
+add_filter ( 'rest_endpoints', 'bestelgrindenzand_disable_rest_endpoints');
 
 
 // security hardening, prevent access to author pages
