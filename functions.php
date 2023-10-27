@@ -1,6 +1,7 @@
 <?php
 
-define('BESTELGRINDENZAND_THEME_VER', '1.3.3');
+$bestelgrindenzand_theme = wp_get_theme ();
+define ( 'BESTELGRINDENZAND_THEME_VER', $bestelgrindenzand_theme -> get ( 'Version' ) );
 
 // Child theme textdomain
 function bestelgrindenzand_child_theme_setup() {
