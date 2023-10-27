@@ -143,7 +143,7 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 	function storefront_credit() {
 		?>
 		<div class="flex">
-			<select class="jump-menu" onchange="javascript:location.href = this.value;">
+			<select name="jump-menu" class="jump-menu" onchange="javascript:location.href = this.value;">
 				<option value="https://bestelgrindenzand.nl/">Snelmenu</option>
 				<option value="https://bestelgrindenzand.nl/product/schelpen/">Schelpen</option>
 				<option value="https://bestelgrindenzand.nl/product/betonzand/">Betonzand</option>
