@@ -87,8 +87,20 @@ function bestelgrindenzand_save_variation_ean_field( $variation_id, $loop ) {
 
 	if ( '' === $ean ) {
 		$variation->delete_meta_data( '_wpm_gtin_code' );
+		$variation->delete_meta_data( '_global_unique_id' );
+		if ( method_exists( $variation, 'set_global_unique_id' ) ) {
+			$variation->set_global_unique_id( '' );
+		}
 	} else {
 		$variation->update_meta_data( '_wpm_gtin_code', $ean );
+		$variation->update_meta_data( '_global_unique_id', $ean );
+		if ( method_exists( $variation, 'set_global_unique_id' ) ) {
+			try {
+				$variation->set_global_unique_id( $ean );
+			} catch ( Exception $e ) {
+				// Keep the legacy EAN value even if WooCommerce rejects the global unique ID.
+			}
+		}
 	}
 
 	$variation->save_meta_data();
@@ -112,3 +124,23 @@ function bestelgrindenzand_google_product_feed_ean_field( $fields ) {
 	return $fields;
 }
 add_filter( 'woocommerce_gpf_custom_field_list', 'bestelgrindenzand_google_product_feed_ean_field' );
+
+function bestelgrindenzand_product_feed_ean_data( $product_data, $feed, $product ) {
+	$ean = bestelgrindenzand_get_product_ean( $product );
+
+	if ( '' === $ean && method_exists( $product, 'get_global_unique_id' ) ) {
+		$ean = $product->get_global_unique_id();
+	}
+
+	if ( '' === $ean ) {
+		return $product_data;
+	}
+
+	$product_data['gtin'] = $ean;
+	$product_data['global_unique_id'] = $ean;
+	$product_data['_wpm_gtin_code'] = $ean;
+	$product_data['custom_attributes__wpm_gtin_code'] = $ean;
+
+	return $product_data;
+}
+add_filter( 'adt_get_product_data', 'bestelgrindenzand_product_feed_ean_data', 10, 3 );
