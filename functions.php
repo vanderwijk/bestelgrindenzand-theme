@@ -25,6 +25,7 @@ add_action( 'wp_enqueue_scripts', 'bestelgrindenzand_scripts_styles', 999 );
 
 
 require 'shortcode-calculator.php';
+require 'woocommerce-variation-ean.php';
 
 
 function bestelgrindenzand_scripts_head() { ?>
