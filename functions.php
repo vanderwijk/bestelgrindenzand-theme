@@ -304,12 +304,14 @@ function bestelgrindenzand_seo_description_product_tab() {
 add_filter ( 'woocommerce_product_description_heading', 'bestelgrindenzand_seo_description_product_tab' );
 
 
-function bestelgrindenzand_seo_add_to_cart_button() {
-	// todo: this causes an error when using WooCommerce blocks
-	global $product;
-	return __('Bestel', 'bestelgrindenzand') . ' ' . $product->get_name();
+function bestelgrindenzand_seo_add_to_cart_button( $text, $product ) {
+	if ( ! is_object( $product ) || ! method_exists( $product, 'get_name' ) ) {
+		return $text;
+	}
+
+	return __( 'Bestel', 'bestelgrindenzand' ) . ' ' . $product->get_name();
 }
-add_filter ( 'woocommerce_product_add_to_cart_text','bestelgrindenzand_seo_add_to_cart_button' );
+add_filter ( 'woocommerce_product_add_to_cart_text', 'bestelgrindenzand_seo_add_to_cart_button', 10, 2 );
 
 
 // Fix search console errors
@@ -374,6 +376,21 @@ function bestelgrindenzand_redirect_to_home_if_author_parameter() {
 add_action( 'template_redirect', 'bestelgrindenzand_redirect_to_home_if_author_parameter' );
 
 
+function bestelgrindenzand_get_estimated_delivery_date( $business_days = 5 ) {
+	$date = current_datetime();
+
+	while ( $business_days > 0 ) {
+		$date = $date->add( new DateInterval( 'P1D' ) );
+
+		if ( (int) $date->format( 'N' ) < 6 ) {
+			$business_days--;
+		}
+	}
+
+	return wp_date( 'Y-m-d', $date->getTimestamp(), $date->getTimezone() );
+}
+
+
 function bestelgrindenzand_google_customer_reviews( $order_id ) {
 
 	if ( ! $order_id ) {
@@ -381,12 +398,16 @@ function bestelgrindenzand_google_customer_reviews( $order_id ) {
 	}
 
 	$order = wc_get_order( $order_id );
-	if ( ! $order ) {
+	if ( ! $order || ! $order->is_paid() ) {
 		return;
 	}
 
 	// Klantgegevens
 	$email   = $order->get_billing_email();
+	if ( ! is_email( $email ) ) {
+		return;
+	}
+
 	$country = $order->get_shipping_country();
 	if ( empty( $country ) ) {
 		$country = $order->get_billing_country();
@@ -397,7 +418,7 @@ function bestelgrindenzand_google_customer_reviews( $order_id ) {
 
 	// Geschatte leverdatum: 5 werkdagen vanaf vandaag.
 	// Pas dit aantal aan als jullie standaard sneller of langzamer leveren.
-	$delivery_date = date( 'Y-m-d', strtotime( '+5 weekdays' ) );
+	$delivery_date = bestelgrindenzand_get_estimated_delivery_date();
 
 	// Probeer GTIN's (EAN/UPC) per orderregel te vinden. Verschillende plugins
 	// slaan dit op verschillende plekken op, dus we kijken in een paar veldnamen.
