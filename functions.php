@@ -372,3 +372,85 @@ function bestelgrindenzand_redirect_to_home_if_author_parameter() {
 	}
 }
 add_action( 'template_redirect', 'bestelgrindenzand_redirect_to_home_if_author_parameter' );
+
+
+function bestelgrindenzand_google_customer_reviews( $order_id ) {
+
+	if ( ! $order_id ) {
+		return;
+	}
+
+	$order = wc_get_order( $order_id );
+	if ( ! $order ) {
+		return;
+	}
+
+	// Klantgegevens
+	$email   = $order->get_billing_email();
+	$country = $order->get_shipping_country();
+	if ( empty( $country ) ) {
+		$country = $order->get_billing_country();
+	}
+	if ( empty( $country ) ) {
+		$country = 'NL';
+	}
+
+	// Geschatte leverdatum: 5 werkdagen vanaf vandaag.
+	// Pas dit aantal aan als jullie standaard sneller of langzamer leveren.
+	$delivery_date = date( 'Y-m-d', strtotime( '+5 weekdays' ) );
+
+	// Probeer GTIN's (EAN/UPC) per orderregel te vinden. Verschillende plugins
+	// slaan dit op verschillende plekken op, dus we kijken in een paar veldnamen.
+	$gtins = array();
+	foreach ( $order->get_items() as $item ) {
+		$product = $item->get_product();
+		if ( ! $product ) {
+			continue;
+		}
+
+		$gtin = $product->get_meta( '_wpm_gtin_code' );
+		if ( empty( $gtin ) ) {
+			$gtin = $product->get_meta( '_global_unique_id' );
+		}
+		if ( empty( $gtin ) ) {
+			$gtin = $product->get_meta( '_wc_gla_global_unique_id' );
+		}
+		if ( empty( $gtin ) && $product->is_type( 'variation' ) ) {
+			$parent = wc_get_product( $product->get_parent_id() );
+			if ( $parent ) {
+				$gtin = $parent->get_meta( '_wpm_gtin_code' );
+				if ( empty( $gtin ) ) {
+					$gtin = $parent->get_meta( '_global_unique_id' );
+				}
+				if ( empty( $gtin ) ) {
+					$gtin = $parent->get_meta( '_wc_gla_global_unique_id' );
+				}
+			}
+		}
+
+		if ( ! empty( $gtin ) ) {
+			$gtins[] = array( 'gtin' => (string) $gtin );
+		}
+	}
+	?>
+
+	<!-- Google Customer Reviews opt-in -->
+	<script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+	<script>
+		window.renderOptIn = function() {
+			window.gapi.load('surveyoptin', function() {
+				window.gapi.surveyoptin.render({
+					"merchant_id": 340980028,
+					"order_id": <?php echo wp_json_encode( (string) $order_id ); ?>,
+					"email": <?php echo wp_json_encode( $email ); ?>,
+					"delivery_country": <?php echo wp_json_encode( $country ); ?>,
+					"estimated_delivery_date": <?php echo wp_json_encode( $delivery_date ); ?>,
+					"products": <?php echo wp_json_encode( $gtins ); ?>
+				});
+			});
+		};
+	</script>
+
+	<?php
+}
+add_action( 'woocommerce_thankyou', 'bestelgrindenzand_google_customer_reviews', 20, 1 );
